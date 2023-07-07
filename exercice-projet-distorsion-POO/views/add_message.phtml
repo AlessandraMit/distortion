@@ -1,0 +1,56 @@
+<div class="row">
+    <section class="accordion my-1 col-3" id="category-list">
+        <!--<h2 class="h5">Liste des salons</h2>-->
+        
+        <?php foreach ($categories as $catId => $category): ?>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#category-<?= $catId ?>" aria-expanded="true" aria-controls="<?= $category['name'] ?>">
+                        <?= $category['name'] ?>
+                    </button>
+                </h2>
+                <div id="category-<?= $catId ?>" class="accordion-collapse collapse show" data-bs-parent="#category-list">
+                    <div class="accordion-body">
+                        <ul>
+                            <?php foreach ($category['rooms'] as $id => $room): ?>
+                                <li><a href="index.php?page=chat&id=<?= $id ?>"><?= $room ?></a></li>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+    </section>
+    <section class="col-9">
+        <form action="index.php?page=chat&id=<?= $_GET['id']; ?>" method="POST">
+            <label for="content">Envoyer un message :</label>
+            <textarea name="content" id="content" class="form-control"></textarea>
+            <!-- si la variable de message d'erreur existe -->
+            <?php if(isset($error)): ?>
+                <!-- afficher le message d'erreur -->
+                <div class="alert alert-danger" role="alert">
+                  <?= $error; ?>
+                </div>
+            <?php endif; ?>
+            <input type="submit" value="Envoyer" class="btn btn-primary my-3"/>
+        </form>
+        
+        <?php foreach($messages as $message): ?>
+        
+        <div>
+            <span class="badge text-bg-primary">
+            <?= date_format(new DateTime($message['created_at']), 'd/m/Y - H:i:s'); ?>
+            -
+            <?php   if($message['login'] !== null) { 
+                        echo $message['login'];
+                    } else {
+                        echo 'Anonyme';
+                    }
+            ?> :
+            </span>
+            <p><?= $message['content']; ?></p>
+        </div>
+        
+        <?php endforeach; ?>
+    </section>
+</div>

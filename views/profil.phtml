@@ -1,0 +1,67 @@
+
+<section class="container">
+    
+    <h2>Modifier votre profil</h2>
+
+    <form action="index.php?page=profil" method="POST" enctype="multipart/form-data">
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">Prénom :</label>
+            <input name="first_name" type="text" class="form-control" id="validationTooltip01" value="<?= $user['first_name']; ?>">
+                <?php if(isset($errors['first_name'])): ?>
+                    <!-- afficher le message d'erreur -->
+                    <div class="alert alert-danger" role="alert">
+                        <?= $errors['first_name']; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if(isset($userAlreadyExist)): ?>
+                    <!-- afficher le message d'erreur -->
+                    <div class="alert alert-danger" role="alert">
+                        <?= $userAlreadyExist; ?>
+                    </div>
+                <?php endif; ?>
+               
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">Nom :</label>
+            <input name="last_name"type="text" class="form-control" id="validationTooltip01" value="<?= $user['last_name']; ?>">
+                <?php if(isset($errors['last_name'])): ?>
+                    <!-- afficher le message d'erreur -->
+                    <div class="alert alert-danger" role="alert">
+                        <?= $errors['last_name']; ?>
+                    </div>
+                <?php endif; ?>
+                
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Adresse mail:</label>
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $user['email']; ?>">
+                <?php if(isset($errors['email'])): ?>
+                    <!-- afficher le message d'erreur -->
+                    <div class="alert alert-danger" role="alert">
+                        <?= $errors['email']; ?>
+                    </div>
+                <?php endif; ?>
+                
+            <div id="emailHelp" class="form-text">Votre adresse mail ne sera pas visible par les autres utilisateurs.</div>
+        </div>
+          <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">@</span>
+          <input name="login" type="text" class="form-control" placeholder="Pseudo" aria-label="Username" aria-describedby="addon-wrapping" value="<?= $user['login']; ?>">
+                <?php if(isset($errors['login'])): ?>
+                    <!-- afficher le message d'erreur -->
+                    <div class="alert alert-danger" role="alert">
+                        <?= $errors['login']; ?>
+                    </div>
+                <?php endif; ?>
+        </div>
+        
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Ajouter une photo de profil :</label>
+          <input name="file" class="form-control" type="file" id="file">
+        </div>
+        
+
+          <button type="submit" class="btn btn-dark my-4">Enregistrer</button>
+    </form>    
+    
+</section>

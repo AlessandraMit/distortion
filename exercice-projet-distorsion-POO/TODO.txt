@@ -1,0 +1,42 @@
+TODOLIST Distorsion :
+
+ ! Ne pas pouvoir créer deux fois le même utilisateur
+
+ ! Régler le soucis des avatars
+
+-----
+
+créer des chats privés
+
+créer des salons privés
+
+Rajouter des filtres pour les salons
+
+Notification sur le nombre de message non lu
+
+Partage de fichiers
+
+Afficher des images dans les chats
+
+Modifier/Supprimer un message
+
+Envoyer des messages vocaux
+
+Afficher l'image de l'utilisateur dans le chat
+
+Recherche dans la conversation
+
+Système de modération
+
+Fil d'ariane
+
+Cloturer/Archiver un salon
+
+Epingler des messages
+
+Afficher les utilisateurs connectés
+
+Rajouter une règle pour les mots de passe
+
+Système de récupération de mot de passe
+

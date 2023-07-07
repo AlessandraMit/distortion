@@ -1,0 +1,41 @@
+<section class="container">
+    <h1>Gestion des salons</h1>
+    
+    <div class="row my-4">
+        <section class="col">
+            <h2 class="h5">Ajouter un nouveau salon</h2>
+            <form action="index.php?page=add_room" method="POST">
+                <div class="form-group">
+                    <label for="room">Nom du salon</label>
+                    <input type="text" name="room" id="room" class="form-control">
+                </div>
+                <!-- si la variable de message d'erreur existe -->
+                <?php if(isset($error)): ?>
+                    <!-- afficher le message d'erreur -->
+                    <div class="alert alert-danger" role="alert">
+                      <?= $error; ?>
+                    </div>
+                <?php endif; ?>
+                <div class="form-group">
+                    <label for="cat_id">Catégorie</label>
+                    <select name="cat_id" class="form-control">
+                        <?php foreach($categories as $cat) { ?>
+                            <option value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="my-2">
+                    <button class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+        </section>
+        <section class="col">
+            <h2 class="h5">Liste des salons</h2>
+            <ul>
+                <?php foreach ($rooms as $room): ?>
+                    <li><?= $room['name'] ?></li>
+                <?php endforeach ?>
+            </ul>
+        </section>
+    </div>
+</section>

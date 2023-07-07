@@ -1,0 +1,37 @@
+<section class="container">
+    <h1>Gestion des catégories</h1>
+    
+    <div class="row my-4">
+        <section class="col mr-2">
+            <h2 class="h5">Ajouter une nouvelle catégorie</h2>
+            <!-- formulaire de création de catégorie -->
+            <form action="index.php?page=add_category" method="POST">
+                <div class="form-group">
+                    <label for="category">Catégorie</label>
+                    <input type="text" name="category" id="category" class="form-control">
+                </div>
+                
+                <!-- si la variable de message d'erreur existe -->
+                <?php if(isset($error)): ?>
+                    <!-- afficher le message d'erreur -->
+                    <div class="alert alert-danger" role="alert">
+                      <?= $error; ?>
+                    </div>
+                <?php endif; ?>
+                <div class="my-2">
+                    <button class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+        </section>
+        
+        <section class="col">
+            <h2 class="h5">Liste des catégories</h2>
+            <ul>
+                <?php foreach ($categories as $category): ?>
+                    <li><?= $category['name'] ?></li>
+                <?php endforeach ?>
+            </ul>
+        </section>
+        
+    </div>
+</section>

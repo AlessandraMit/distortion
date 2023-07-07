@@ -1,0 +1,56 @@
+<section class="container">
+    
+    <h2>Créer un compte</h2>
+
+    <form action="index.php?page=register" method="POST">
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">Prénom :</label>
+            <input name="first_name" type="text" class="form-control" id="validationTooltip01" value="<?php if(isset($_POST['first_name'])) { echo $_POST['first_name']; } ?>">
+                <?php if(isset($errors['first_name'])): ?>
+                <div class="alert alert-danger" role="alert">
+                <?= $errors['first_name']; ?>
+                <?php endif ?>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">Nom :</label>
+            <input name="last_name"type="text" class="form-control" id="validationTooltip01" value="<?php if(isset($_POST['last_name'])) { echo $_POST['last_name']; } ?>">
+                <?php if(isset($errors['last_name'])): ?>
+                <div class="alert alert-danger" role="alert">
+                <?= $errors['last_name']; ?>
+                <?php endif ?>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Adresse mail:</label>
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
+                <?php if(isset($errors['email'])): ?>
+                <div class="alert alert-danger" role="alert">
+                <?= $errors['email']; ?>
+                <?php endif ?>
+            <div id="emailHelp" class="form-text">Votre adresse mail ne sera pas visible par les autres utilisateurs.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mot de passe :</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                <?php if(isset($errors['password'])): ?>
+                <div class="alert alert-danger" role="alert">
+                <?= $errors['password']; ?>
+                <?php endif ?>
+        </div>
+          <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">@</span>
+          <input name="login" type="text" class="form-control" placeholder="Pseudo" aria-label="Username" aria-describedby="addon-wrapping" value="<?php if(isset($_POST['login'])) { echo $_POST['login']; } ?>">
+                <?php if(isset($errors['login'])): ?>
+                <div class="alert alert-danger" role="alert">
+                <?= $errors['login']; ?>
+                <?php endif ?>
+                
+                <?php if(isset($errorLogin)): ?>
+                <div class="alert alert-danger" role="alert">
+                <?= $errorLogin; ?>
+                <?php endif ?>
+        </div>
+
+          <button type="submit" class="btn btn-dark my-4">Envoyer</button>
+    </form>    
+    
+</section>

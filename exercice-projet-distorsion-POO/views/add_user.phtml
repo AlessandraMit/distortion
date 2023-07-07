@@ -1,0 +1,81 @@
+
+<section class="container">
+    <!-- formulaire de création de compte -->
+    <div class="row my-4">
+        <section class="col">
+            <h2 class="h5">Créer un compte</h2>
+            <form action="index.php?page=register" method="POST">
+                <div class="form-group">
+                    <label for="login">Login</label>
+                    <input type="text" name="login" id="login" class="form-control" value="<?php if(isset($_POST['login'])) { echo $_POST['login']; } ?>">
+                    <?php if(isset($errors['login'])): ?>
+                        <!-- afficher le message d'erreur -->
+                        <div class="alert alert-danger" role="alert">
+                          <?= $errors['login']; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if(isset($userAlreadyExist)): ?>
+                        <!-- afficher le message d'erreur -->
+                        <div class="alert alert-danger" role="alert">
+                          <?= $userAlreadyExist; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" value="<?php if(isset($_POST['password'])) { echo $_POST['password']; } ?>">
+                    <?php if(isset($errors['password'])): ?>
+                        <!-- afficher le message d'erreur -->
+                        <div class="alert alert-danger" role="alert">
+                          <?= $errors['password']; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
+                    <?php if(isset($errors['email'])): ?>
+                        <!-- afficher le message d'erreur -->
+                        <div class="alert alert-danger" role="alert">
+                          <?= $errors['email']; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="form-group">
+                    <label for="first-name">Prénom</label>
+                    <input type="text" name="first-name" id="first-name" class="form-control" value="<?php if(isset($_POST['first-name'])) { echo $_POST['first-name']; } ?>">
+                    <?php if(isset($errors['first-name'])): ?>
+                        <!-- afficher le message d'erreur -->
+                        <div class="alert alert-danger" role="alert">
+                          <?= $errors['first-name']; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Nom</label>
+                    <input type="text" name="last-name" id="last-name" class="form-control" value="<?php if(isset($_POST['last-name'])) { echo $_POST['last-name']; } ?>">
+                    <?php if(isset($errors['last-name'])): ?>
+                        <!-- afficher le message d'erreur -->
+                        <div class="alert alert-danger" role="alert">
+                          <?= $errors['last-name']; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">Date de naissance</label>
+                    <input type="date" name="birthdate" id="birthdate" class="form-control" value="<?php if(isset($_POST['birthdate'])) { echo $_POST['birthdate']; } ?>">
+                    <?php if(isset($errors['birthdate'])): ?>
+                        <!-- afficher le message d'erreur -->
+                        <div class="alert alert-danger" role="alert">
+                          <?= $errors['birthdate']; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="my-2">
+                    <button class="btn btn-primary">S'enregistrer</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+</section>

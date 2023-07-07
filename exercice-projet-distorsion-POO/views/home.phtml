@@ -1,0 +1,40 @@
+<section class="container">
+    
+    <?php if(isset($_GET['register']) && $_GET['register'] === 'ok'): ?>
+    <div class="alert alert-success" role="alert">
+      Félicitation, vous êtes bien enregistré
+    </div>
+    <?php endif ?>
+    
+    <h1>Page d'accueil</h1>
+    
+    <section class="accordion my-4" id="category-list">
+        <h2 class="h5">Liste des salons</h2>
+        
+        <?php foreach ($categories as $catId => $category): ?>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#category-<?= $catId ?>" aria-expanded="true" aria-controls="<?= $category['name'] ?>">
+                        <?= $category['name'] ?>
+                    </button>
+                </h2>
+                <div id="category-<?= $catId ?>" class="accordion-collapse collapse show" data-bs-parent="#category-list">
+                    <div class="accordion-body">
+                        <ul>
+                            <?php foreach ($category['rooms'] as $id => $room): ?>
+                                <li>
+                                    
+                                    <a href="index.php?page=chat&id=<?= $id ?>"><?= $room ?></a> 
+                                
+                                    <?php if(isset($_SESSION['rank']) && $_SESSION['rank'] == 1) { ?>
+                                    <a href="index.php?page=delete_room&idRoom=<?= $id ?>" class="btn-close ms-2" aria-label="Close"></a>
+                                    <?php } ?>
+                                </li>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+    </section>
+</section>
